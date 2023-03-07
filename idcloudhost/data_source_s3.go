@@ -1,7 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package provider
+package idcloudhost
 
 import (
 	"context"
@@ -10,12 +10,12 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-func dataSourceScaffolding() *schema.Resource {
+func dataSourceS3() *schema.Resource {
 	return &schema.Resource{
 		// This description is used by the documentation generator and the language server.
 		Description: "Sample data source in the Terraform provider scaffolding.",
 
-		ReadContext: dataSourceScaffoldingRead,
+		ReadContext: dataSourceS3Read,
 
 		Schema: map[string]*schema.Schema{
 			"sample_attribute": {
@@ -28,7 +28,7 @@ func dataSourceScaffolding() *schema.Resource {
 	}
 }
 
-func dataSourceScaffoldingRead(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+func dataSourceS3Read(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
 	// use the meta value to retrieve your client from the provider configure method
 	// client := meta.(*apiClient)
 
