@@ -6,6 +6,7 @@ package main
 import (
 	"flag"
 
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 	"github.com/hashicorp/terraform-provider-scaffolding/internal/provider"
 )
@@ -39,9 +40,11 @@ func main() {
 		Debug: debugMode,
 
 		// TODO: update this string with the full name of your provider as used in your configs
-		ProviderAddr: "registry.terraform.io/hashicorp/scaffolding",
+		ProviderAddr: "bonestealer.xyz/muhammad-asn/idcloudhost",
 
-		ProviderFunc: provider.New(version),
+		ProviderFunc: func() *schema.Provider {
+			return provider.Provider()
+		},
 	}
 
 	plugin.Serve(opts)
